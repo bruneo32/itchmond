@@ -1,52 +1,36 @@
-# desmond
-Embed a Nintendo DS emulator easily. (Embeddable version of DeSmuME-wasm)
+# Itchmond
+Embed a Nintendo DS emulator easily for [itch.io](https://itch.io) homebrew **NDS ROM** games
 
-# Installation
-```
-npm install desmond-emu
-```
+## Features
+- Mobile friendly
+- Controller support
+- GPU acceleration
+- Configurable
 
-You can also run this to get Desmond files on Linux, and on Windows with WSL2 and [wingubash](https://npmjs.com/package/wingubash):
-```
-curl https://raw.githubusercontent.com/js-emulators/desmond/main/installer.sh | sh
-```
-
-Or you can use through CDN:
-```html
-<script src="https://cdn.jsdelivr.net/gh/Unzor/desmond/cdn/desmond.min.js"></script>
-```
-Make sure to put the script below all elements in body but on top of the script you will use to initiate Desmond (like [this](#usage)).
 # Usage
-```html
-<html>
-  <body>
-    <desmond-player id="player"></desmond-player>
-    <script src="path/to/desmond.min.js"></script>
-    <script>
-    document.getElementById("player").loadURL("path-to-game.nds");
-    </script>
-  </body>
-</html>
-```
-# Run function after load
-To run a function after the file loads, you may attach a function as the second argument. You can also enable microphone using it.
+- Download this repo as **ZIP** https://github.com/bruneo32/itchmond/archive/refs/heads/main.zip
 
-# Enable microphone
-To use the microphone, you have to use the "enableMicrophone" function inside of the callback function.
-Here is an example:
-```html
-<!doctype html>
-<html>
-<body>
-    <desmond-player id="player"></desmond-player>
-    <script src="path/to/desmond.min.js"></script>
-  <script>
-      var player = document.getElementById("player");
-      player.loadURL("FILE_HERE.nds", function(){
-         player.enableMicrophone();
-      })
-  </script>
-</body>
+- Add your game to the **ZIP** *(preferible filename `game.nds`)*
 
-</html>
-```
+- Update the `config.json` if needed
+  ```json
+  {
+    "title": "MyGame", // Will not be displayed usually
+    "rom": "game.nds", // The filename inside the ZIP to load
+    "enableMicrophone": false, // If your game uses the microphone
+    "background": "#222" // The color of the emulator background
+  }
+  ```
+
+
+- Go to your [itch.io dashboard](https://itch.io/dashboard) and edit you game page
+- Select **Kind of project**: ***HTML***
+
+- Upload the **ZIP** you have prepared and set the following configuration
+  ![image](https://i.imgur.com/08UHaDh.png)
+
+- Also include the following image somewhere in your game's description to show the emulator controls
+  ![image](https://i.imgur.com/a6Pb9yr.png)
+  > Credits: https://rhosgfx.itch.io/vector-keyboard-controls, https://robthefivenine.itch.io/flat-gamepad-icons
+
+- **Done!** Publish your game

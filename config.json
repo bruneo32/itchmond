@@ -1,0 +1,6 @@
+{
+	"title": "Itch.io embedded NDS Emulator",
+	"rom": "game.nds",
+	"enableMicrophone": false,
+	"background": "#222"
+}
